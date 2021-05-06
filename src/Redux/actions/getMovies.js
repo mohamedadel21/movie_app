@@ -14,10 +14,8 @@ export const getMovies = query => {
 
     try {
       const {data} = await axios(ServiceURL.getMovies(query), {method: 'GET'});
-      console.log(data.results);
       dispatch({type: GET_MOVIES_SUCCESS, payload: data.results});
     } catch (error) {
-
       dispatch({
         type: GET_MOVIES_FAILED,
         payload: error.response.data.errors[0],
